@@ -1,0 +1,54 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+	<xsd:include schemaLocation="opencms://opencms-xmlcontent.xsd"/>
+
+	<xsd:element name="Contacts" type="OpenCmsContacts"/>
+
+	<xsd:complexType name="OpenCmsContacts">
+		<xsd:sequence>
+			<xsd:element name="Contact" type="OpenCmsContact" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="OpenCmsContact">
+		<xsd:sequence>
+			<xsd:element name="HashTag" type="OpenCmsString" />
+			<xsd:element name="Title" type="OpenCmsString" />
+			<xsd:element name="ShortDes" type="OpenCmsString" />
+			<xsd:element name="DetailInfo" type="OpenCmsHtml" />
+			<xsd:element name="Image" type="OpenCmsVfsFile" />
+			<xsd:element name="LastNameLabel" type="OpenCmsString" />
+			<xsd:element name="FirstNameLabel" type="OpenCmsString" />
+			<xsd:element name="EmailLabel" type="OpenCmsString" />
+			<xsd:element name="CommentsLabel" type="OpenCmsString" />
+			<xsd:element name="SubmitLabel" type="OpenCmsString" />
+		</xsd:sequence>
+		<xsd:attribute name="language" type="OpenCmsLocale" use="required"/>
+	</xsd:complexType>
+
+	<xsd:annotation>
+		<xsd:appinfo>
+			<!--<mappings>
+				<mapping element="Title" mapto="property:Title" />
+				<mapping element="Title" mapto="urlName" />
+			</mappings>-->
+			<defaults>
+				<default element="HashTag" value="Remember input HashTag match with HashTag on Navigation Header Content Type" />
+				<default element="Title" value="Add a new Contact US title here" />
+				<default element="LastNameLabel" value="Last Name" />
+				<default element="FirstNameLabel" value="First Name" />
+				<default element="EmailLabel" value="Email" />
+				<default element="CommentsLabel" value="Comments" />
+				<default element="SubmitLabel" value="Submit" />
+			</defaults>
+			<layouts>
+				<layout element="DetailInfo" widget="HtmlWidget" configuration="downloadgallery" />
+				<layout element="Image" widget="ImageGalleryWidget" configuration="{useformat:true}" />
+			</layouts>
+			<validationrules/>
+			<relations/>
+			<searchsettings containerPageOnly="true"/>
+		</xsd:appinfo>
+	</xsd:annotation>
+
+</xsd:schema>

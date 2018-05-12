@@ -1,0 +1,39 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+	<xsd:include schemaLocation="opencms://opencms-xmlcontent.xsd"/>
+	<xsd:include schemaLocation="opencms://system/modules/com.myjourney/schemas/nested/pricelist.xsd" />
+	<xsd:element name="Price-Lists" type="OpenCmsPrice-Lists"/>
+
+	<xsd:complexType name="OpenCmsPrice-Lists">
+		<xsd:sequence>
+			<xsd:element name="Price-List" type="OpenCmsPrice-List" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="OpenCmsPrice-List">
+		<xsd:sequence>
+			<xsd:element name="HashTag" type="OpenCmsString" />
+			<xsd:element name="Title" type="OpenCmsString" />
+			<xsd:element name="TextDescription" type="OpenCmsHtml" />
+			<xsd:element name="ListPrice" type="OpenCmsListPrice" minOccurs="0" maxOccurs="4"/>
+		</xsd:sequence>
+		<xsd:attribute name="language" type="OpenCmsLocale" use="required"/>
+	</xsd:complexType>
+
+	<xsd:annotation>
+		<xsd:appinfo>
+			<defaults>
+				<default element="HashTag" value="Remember input HashTag match with HashTag on Navigation Header Content Type" />
+				<default element="Title" value="Add a new title for list Price services here" />
+				<default element="TextDescription" value="Add your text" />
+			</defaults>
+			<layouts>
+				<layout element="TextDescription" widget="HtmlWidget" configuration="downloadgallery" />
+			</layouts>
+			<validationrules/>
+			<relations/>
+			<searchsettings containerPageOnly="true"/>
+		</xsd:appinfo>
+	</xsd:annotation>
+
+</xsd:schema>

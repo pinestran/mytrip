@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">    
+    <xsd:include schemaLocation="opencms://opencms-xmlcontent.xsd"/>
+        
+    <xsd:element name="MyJourneyNotifys" type="OpenCmsMyJourneyNotifys"/>
+        
+    <xsd:complexType name="OpenCmsMyJourneyNotifys">
+        <xsd:sequence>
+            <xsd:element name="MyJourneyNotify" type="OpenCmsMyJourneyNotify" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="OpenCmsMyJourneyNotify">
+        <xsd:sequence>
+            <xsd:element name="Navigation" type="OpenCmsString" />
+            <xsd:element name="Hashtag" type="OpenCmsString" />
+        </xsd:sequence>
+        <xsd:attribute name="language" type="OpenCmsLocale" use="optional"/>
+    </xsd:complexType>
+    
+    <xsd:annotation>
+        <xsd:appinfo>
+	        <validationrules> 
+				<rule element="Navigation" regex="^.{0,25}$" type="error" message="Maximum 25 characters"/>
+				<rule element="Hashtag" regex="^.{0,15}$" type="error" message="Maximum 15 characters"/>
+			</validationrules>
+            <!--<layouts>
+                <layout element="Content" widget="TextareaWidget" configuration="3" />
+            </layouts>-->
+            <searchsettings containerPageOnly="true"/>
+        </xsd:appinfo>
+    </xsd:annotation>
+</xsd:schema>

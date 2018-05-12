@@ -1,0 +1,34 @@
+
+desc.navHeader=This is navigation bar on top of page
+fileicon.navHeader=Navigation Bar
+title.navHeader=Nav Bar Header
+
+desc.bannerSlider=Banner for attractive
+fileicon.bannerSlider=Banner Slider
+title.bannerSlider=Banner-Slider-Tittle
+
+fileicon.package=Popular Package
+desc.package=Most Popular Package
+
+fileicon.Package=Package Content Type
+desc.Package=Create the most popular package
+
+desc.Quote=To create a quote expression
+fileicon.Quote=Quote Content Type
+
+fileicon.Price-List=Price List Content Type
+desc.Price-List=This is price table to hire us
+
+fileicon.About-Us=About Us Content Type
+desc.About-Us=Description about this web's author 
+
+fileicon.Gallery=Gallery Content Type
+desc.Gallery=To show the most popular images
+
+fileicon.Contact=Contact Content Type
+title.Contact=Contact Content Type Tittle
+desc.Contact=To Contact the author of web
+
+desc.Footer-Social=To add social network to contacting
+fileicon.Footer-Social=Footer Social Content Type
+title.Footer-Social=Footer-Social Title

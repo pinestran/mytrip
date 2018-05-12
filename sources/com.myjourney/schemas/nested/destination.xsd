@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">    
+    <xsd:include schemaLocation="opencms://opencms-xmlcontent.xsd"/>
+        
+    <xsd:element name="Destinations" type="OpenCmsDestinations"/>
+        
+    <xsd:complexType name="OpenCmsDestinations">
+        <xsd:sequence>
+            <xsd:element name="Destination" type="OpenCmsDestination" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="OpenCmsDestination">
+        <xsd:sequence>
+            <xsd:element name="PlaceName" type="OpenCmsString" />
+			<xsd:element name="ShortDescription" type="OpenCmsHtml" />
+			<xsd:element name="CheckOutLabel" type="OpenCmsString" />
+			<xsd:element name="Link" type="OpenCmsVarLink" />
+			<xsd:element name="Image" type="OpenCmsVfsFile" />
+        </xsd:sequence>
+        <xsd:attribute name="language" type="OpenCmsLocale" use="optional"/>
+    </xsd:complexType>
+    
+    <xsd:annotation>
+        <xsd:appinfo>
+	        <defaults>
+				<default element="PlaceName" value="Add a new Place Name here" />
+				<default element="ShortDescription" value="Add your short description" />
+				<default element="CheckOutLabel" value="Check out"/>
+			</defaults>
+			<layouts> 
+				<layout element="ShortDescription" widget="HtmlWidget" configuration="downloadgallery" />
+				<layout element="Image" widget="ImageGalleryWidget" configuration="{useformat: true}" />
+			</layouts>
+            <!--<layouts>
+                <layout element="Content" widget="TextareaWidget" configuration="3" />
+            </layouts>-->
+            <searchsettings containerPageOnly="true"/>
+        </xsd:appinfo>
+    </xsd:annotation>
+</xsd:schema>
